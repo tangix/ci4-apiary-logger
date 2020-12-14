@@ -23,7 +23,7 @@ $routes->setDefaultController('Home');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
-$routes->setAutoRoute(true);
+$routes->setAutoRoute(false);
 
 /**
  * --------------------------------------------------------------------
@@ -36,15 +36,18 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 $routes->options('(:any)', 'Options::index');
 
-//$routes->get('queens', 'Queens::index');
-
 $routes->resource('queens', [
     'controller' => 'Queens',
     'placeholder' => '(:num)',
     'only' => ['index', 'create', 'update', 'delete']
 ]);
 
-$routes->get('hives', 'Hives::index');
+$routes->resource('hives', [
+    'controller' => 'Hives',
+    'placeholder' => '(:num)',
+    'only' => ['index', 'create', 'update', 'delete']
+]);
+
 
 /**
  * --------------------------------------------------------------------

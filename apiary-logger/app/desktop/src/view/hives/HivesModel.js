@@ -6,15 +6,16 @@ Ext.define('ApiaryLogger.desktop.src.view.hives.HivesModel', {
     alias: 'viewmodel.hives',
 
     stores: {
-        /*
-        A declaration of Ext.data.Store configurations that are first processed as binds to produce an effective
-        store configuration. For example:
-
-        users: {
-            model: 'Hives',
+        hives: {
+            sorters: [
+                {
+                    property: 'name',
+                    direction: 'ASC'
+                }
+            ],
+            model: 'Hive',
             autoLoad: true
-        }
-        */
+        },
     },
 
     data: {

@@ -33,7 +33,9 @@ class BaseModel extends \CodeIgniter\Model
         $new_data->item_version = (int)$new_data->item_version + 1;
 
         try {
-            return $this->update($id, $new_data);
+            $this->update($id, $new_data);
+            return true;
+
         } catch (\Exception $e) {
             return false;
         }

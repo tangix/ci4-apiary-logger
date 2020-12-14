@@ -64,6 +64,9 @@ class BaseController extends Controller
         //--------------------------------------------------------------------
         // E.g.:
         // $this->session = \Config\Services::session();
+
+        db_connect()->transOff();
+
     }
 
 }

@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <base href="/front-end/">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=10, user-scalable=yes">
+    <title>ApiaryLogger</title>
+    <script type="text/javascript" src="config.js"></script>
+
+    <script type="text/javascript">
+        var Ext = Ext || {};
+        Ext.beforeLoad = function (tags) {
+            var s = location.search;
+            var profile;
+            if (s.match(/\bdesktop\b/)) {
+                profile = 'desktop'
+            } else if (s.match(/\bphone\b/)) {
+                profile = 'phone'
+            } else {
+                profile = tags.desktop ? 'desktop' : 'phone'
+            }
+            Ext.manifest = 'generatedFiles/' + profile;
+        };
+    </script>
+
+    <!-- The line below must be kept intact for Sencha Cmd to build your application -->
+    <script id="microloader" data-app="7fd7d6da-a852-4a3b-adeb-b919ac9602bd" src="microloader.js"></script>
+</head>
+<body class="launching">
+<div id="splash" style="margin-top:20%;font-family:Arial;font-size:64px;text-align:center;color:#404040;">
+    <div id="theLoadingText">LOADING...</div>
+    <i style="margin:20px;" class="fa fa-spinner fa-spin"></i>
+</div>
+</body>
+</html>

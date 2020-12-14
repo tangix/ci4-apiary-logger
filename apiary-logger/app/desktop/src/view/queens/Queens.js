@@ -8,6 +8,7 @@ Ext.define('ApiaryLogger.desktop.src.view.queens.Queens', {
         'ApiaryLogger.desktop.src.view.queens.QueensController',
         'ApiaryLogger.desktop.src.view.queens.QueensModel',
         'Ext.field.Checkbox',
+        'Ext.field.ComboBox',
         'Ext.field.Date',
         'Ext.field.Select',
         'Ext.field.Text',
@@ -60,6 +61,9 @@ Ext.define('ApiaryLogger.desktop.src.view.queens.Queens', {
     editor: {
         xtype: 'dialog',
         defaultFocus: '#ok',
+        scrollable: true,
+        bodyPadding: 10,
+        closable: true,
         items: [
             {
                 xtype: 'formpanel',
@@ -124,6 +128,19 @@ Ext.define('ApiaryLogger.desktop.src.view.queens.Queens', {
                         label: 'Comment',
                         bind: {
                             value: '{obj.comment}'
+                        }
+                    },
+                    {
+                        xtype: 'selectfield',
+                        label: 'Ancestor',
+                        reference: 'ancestor',
+                        displayField: 'name',
+                        valueField: 'id',
+                        clearable: true,
+                        queryMode: 'local',
+                        bind: {
+                            store: '{ancestors}',
+                            value: '{obj.ancestor}'
                         }
                     },
                     {

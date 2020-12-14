@@ -13,6 +13,6 @@ class HiveModel extends BaseModel
     protected $table = DBTable::hive;
     protected $primaryKey = 'id';
 
-    protected $allowedFields = ['name'];
+    protected $allowedFields = ['name', 'comment', 'item_version'];
     protected $returnType = HiveEntity::class;
 }

@@ -9,6 +9,10 @@ Ext.define('ApiaryLogger.util.Shared', {
     constructor: function (config) {
     	var me = this;
         this.initConfig(config);
+
+        if (typeof BACKEND_URL !== 'undefined') {
+            me.setBackend(BACKEND_URL);
+        }
     },
 
     log: function (msg) {

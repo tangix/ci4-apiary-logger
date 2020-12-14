@@ -15,19 +15,23 @@ class Hives extends \CodeIgniter\Database\Seeder
         $data = [
             [
                 'id' => 1,
-                'name' => 'H-Blue1'
+                'name' => 'H-Blue1',
+                'comment' => 'Located on bench 1'
             ],
             [
                 'id' => 2,
-                'name' => 'H-Green2'
+                'name' => 'H-Green2',
+                'comment' => 'Located on bench 1'
             ],
             [
                 'id' => 3,
-                'name' => 'H-Green1'
+                'name' => 'H-Green1',
+                'comment' => 'Located in SW field'
             ],
             [
                 'id' => 4,
-                'name' => 'H-Red1'
+                'name' => 'H-Red1',
+                'comment' => 'Located by the forest road'
             ]
         ];
 

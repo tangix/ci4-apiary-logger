@@ -17,6 +17,14 @@ Ext.define('ApiaryLogger.desktop.src.view.queens.QueensController', {
         this.callParent();
     },
 
+    clearVMObj: function() {
+        var me = this;
+        // Clear the ViewModel object because of problems with the selectfield.
+        Ext.defer(function() {
+            me.getViewModel().set('obj', {});
+        }, 200, me);
+    },
+
     onStoreSync: function () {
         this.getViewModel().getStore('queens').reload();
     },
@@ -25,6 +33,7 @@ Ext.define('ApiaryLogger.desktop.src.view.queens.QueensController', {
         var me = this;
         me.getViewModel().get('obj').reject();
         me.editor.hide();
+        me.clearVMObj();
     },
 
 
@@ -36,6 +45,7 @@ Ext.define('ApiaryLogger.desktop.src.view.queens.QueensController', {
                     me.editor.hide();
                     me.onStoreSync();
                     Shared.success('Queen Saved');
+                    me.clearVMObj();
                 }
             });
         }

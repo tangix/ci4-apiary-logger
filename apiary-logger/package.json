@@ -1,8 +1,8 @@
 {
   "name": "apiary-logger",
   "product": "ext",
-  "version": "0.0.1",
-  "description": "apiary-logger description for Ext JS app ApiaryLogger",
+  "version": "1.0.0",
+  "description": "Apiary Logger is an Ext JS / CodeIgniter4 demonstration project",
   "repository": {
     "type": "git",
     "url": "https://github.com/"
@@ -10,15 +10,15 @@
   "keywords": [
     "Ext",
     "JS",
-    "Sencha",
-    "HTML5"
+    "Apiary",
+    "CodeIgniter4"
   ],
-  "author": "Sencha, Inc.",
-  "license": "ISC",
+  "author": "Mattias Sandström",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/"
+    "url": "https://github.com/tangix/ci4-apiary-logger/"
   },
-  "homepage": "http://www.sencha.com",
+  "homepage": "https://github.com/tangix/ci4-apiary-logger",
   "scripts": {
     "start": "npm run dev:desktop",
     "clean": "rimraf build",

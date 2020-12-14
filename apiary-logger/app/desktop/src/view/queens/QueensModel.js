@@ -6,6 +6,11 @@ Ext.define('ApiaryLogger.desktop.src.view.queens.QueensModel', {
     alias: 'viewmodel.queens',
 
     stores: {
+        ancestors: {
+            model: 'Queen',
+            source: '{queens}',
+            autoLoad: true,
+        },
         queens: {
             sorters: [
                 {

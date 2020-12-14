@@ -11,6 +11,7 @@ Ext.define('ApiaryLogger.shared.src.model.Hive', {
         {name: 'id', type: 'integer', defaultValue: 0},
         'name',
         'comment',
+        {name: 'last_inspection', type: 'date', dateFormat: 'Y-m-d H:i:s'}
     ]
 
 });

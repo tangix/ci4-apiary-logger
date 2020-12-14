@@ -60,6 +60,9 @@
     "base": "${workspace.build.dir}/${build.environment}/${app.name}",
     "page": "index.html",
     "manifest": "generatedFiles/${build.id}.json",
+    "microloader": {
+      "embed": false
+    },
     "js": "generatedFiles/${build.id}/app.js",
     "appCache": {"enable": false},
     "resources": {
