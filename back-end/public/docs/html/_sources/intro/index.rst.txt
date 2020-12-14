@@ -1,0 +1,14 @@
+#######################
+Welcome to ApiLogger
+#######################
+
+ApiLogger is a sample project demonstrating how an Ext JS front-end can be connected 
+using a RESTful API to CodeIgniter4 back-end.
+
+.. toctree::
+	:hidden:
+	:titlesonly:
+
+	self
+	front-end
+	back-end
