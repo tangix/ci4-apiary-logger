@@ -5,6 +5,15 @@ A demo Apiary Logger project demonstrating a project with CodeIgniter4 backend a
 
 This project requires a working PHP 7.2+ installation capable of running version 4.0.4 of CodeIgniter4 as installed by ``composer``. A local SQLite3 database is used for this demonstration. Migrations and Seeders are provided in the project.
 
+Clone this project to your local machine
+
+```
+git clone https://github.com/tangix/ci4-apiary-logger.git
+cd ci4-apiary-logger
+```
+
+Prepare the demo by installing the framework using ``composer``, seed the database and then start ``spark``'s web-server.
+
 ```
 cd back-end
 composer install
