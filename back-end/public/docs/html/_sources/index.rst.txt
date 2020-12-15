@@ -4,12 +4,22 @@
    contain the root `toctree` directive.
 
 #######################
-ApiLogger Description
+Apiary Logger Overview
 #######################
 
 .. toctree::
-	:includehidden:
-        :titlesonly:
+		:includehidden:
+		:titlesonly:
 
-        intro/index
+		intro/index
 
+*********************
+Back-End Description
+*********************
+
+.. toctree::
+		:includehidden:
+		:maxdepth: 2
+		:titlesonly:
+		
+		back-end/index

@@ -118,9 +118,8 @@ Ext.define('ApiaryLogger.desktop.src.view.hives.Hives', {
             flex: 1
         },
         {
-            xtype: 'datecolumn',
+            xtype: 'apidatetimecolumn',
             dataIndex: 'last_inspection',
-            format: 'Y-m-d H:i:s',
             text: 'Last Inspection',
             width: 250
         },

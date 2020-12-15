@@ -86,7 +86,6 @@ Ext.define('ApiaryLogger.desktop.src.view.queens.QueensController', {
             success: function () {
                 Shared.success('Queen Deleted');
                 me.onStoreSync();
-                me.onStoreSync();
             },
             failure: function() {
 
@@ -98,40 +97,12 @@ Ext.define('ApiaryLogger.desktop.src.view.queens.QueensController', {
         var me = this,
             record = location.record;
 
-        if ((record.get('cnt') > 0) || (record.get('territoryCountriesCount') > 0)) {
-            this.replaceObj(record).then(function (o) {
-                Ext.Ajax.request({
-                    method: 'POST',
-                    url: Config.getBackend() + 'config/tageditors/territories/relink',
-                    params: {
-                        from: record.get('territoryID'),
-                        to: o.v,
-                        move: o.m === true ? 'yes' : 'no'
-                    },
-                    success: function (response) {
-                        me.doDeleteObj(record);
-                    },
-                    failure: function () {
-
-                    },
-                    scope: me
-                });
-
-            }, function (e) {
-
-            }).always(function () {
-
-            });
-
-
-        } else {
-            Ext.Msg.confirm('Delete Queen ' + record.get('name') + '?',
+        Ext.Msg.confirm('Delete Queen ' + record.get('name') + '?',
                 'Are you sure?', function (btn) {
                     if (btn === 'yes') {
                         me.doDeleteObj(record);
                     }
                 }, me);
-        }
     },
 
 

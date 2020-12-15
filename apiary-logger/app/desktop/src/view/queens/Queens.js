@@ -174,8 +174,7 @@ Ext.define('ApiaryLogger.desktop.src.view.queens.Queens', {
             width: 150
         },
         {
-            xtype: 'datecolumn',
-            format: 'Y-m-d',
+            xtype: 'apidatecolumn',
             dataIndex: 'installed',
             text: 'Installed'
         },
@@ -185,9 +184,7 @@ Ext.define('ApiaryLogger.desktop.src.view.queens.Queens', {
             text: 'Hive'
         },
         {
-            xtype: 'booleancolumn',
-            falseText: '',
-            trueText: 'Yes',
+            xtype: 'apibooleancolumn',
             dataIndex: 'deceased',
             text: 'Deceased'
         },

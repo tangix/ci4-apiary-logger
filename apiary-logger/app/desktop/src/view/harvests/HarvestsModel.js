@@ -6,15 +6,26 @@ Ext.define('ApiaryLogger.desktop.src.view.harvests.HarvestsModel', {
     alias: 'viewmodel.harvests',
 
     stores: {
-        /*
-        A declaration of Ext.data.Store configurations that are first processed as binds to produce an effective
-        store configuration. For example:
-
-        users: {
-            model: 'Harvests',
+        harvests: {
+            sorters: [
+                {
+                    property: 'name',
+                    direction: 'ASC'
+                }
+            ],
+            model: 'Harvest',
             autoLoad: true
-        }
-        */
+        },
+        hives: {
+            sorters: [
+                {
+                    property: 'name',
+                    direction: 'ASC'
+                }
+            ],
+            model: 'Hive',
+            autoLoad: true
+        },
     },
 
     data: {

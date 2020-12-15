@@ -13,6 +13,7 @@ class Demonstration extends \CodeIgniter\Database\Seeder
         $this->call('Queens');
         $this->call('Hives');
         $this->call('Inspections');
+        $this->call('Harvests');
         $this->db->transCommit();
     }
 }

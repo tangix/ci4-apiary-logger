@@ -17,6 +17,11 @@ Ext.define('ApiaryLogger.view.home.HomeView', {
         '</p>',
         '<p>',
         'For further details please see the <a href="' + Shared.getBackend() + 'docs/html/index.html" target="_blank">documentation</a> describing this project.',
+        '</p>',
+        '<p>',
+        'My portions of the software released under MIT License<br>&copy; Mattias Sandström (msa@tangix.com) 2020<br>',
+        '<a href="https://github.com/tangix/ci4-apiary-logger" target="_blank">https://github.com/tangix/ci4-apiary-logger</a><br>',
+        'Other portions copyrighted and licensed by their respective owners.',
         '</p>'
 
     ].join('')

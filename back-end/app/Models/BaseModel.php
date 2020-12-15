@@ -25,16 +25,16 @@ class BaseModel extends \CodeIgniter\Model
         // item_version - 1 must match what we have in database, otherwise another edit
         // has been made and we bail out.
         if (
-            //((int)$new_data->item_version - 1 !== (int)$record->item_version) &&
         ((int)$new_data->item_version !== (int)$record->item_version)) {
+            log_message('critical', 'Fail version. DB:' . print_r($record, true));
+            log_message('critical', 'Fail version. newData: ' . print_r($new_data, true));
             return false;
         }
 
         $new_data->item_version = (int)$new_data->item_version + 1;
 
         try {
-            $this->update($id, $new_data);
-            return true;
+            return $this->update($id, $new_data);
 
         } catch (\Exception $e) {
             return false;

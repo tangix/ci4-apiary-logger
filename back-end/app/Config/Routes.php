@@ -48,6 +48,17 @@ $routes->resource('hives', [
     'only' => ['index', 'create', 'update', 'delete']
 ]);
 
+$routes->resource('inspections', [
+    'controller' => 'Inspections',
+    'placeholder' => '(:num)',
+    'only' => ['index', 'create', 'update', 'delete']
+]);
+
+$routes->resource('harvests', [
+    'controller' => 'Harvests',
+    'placeholder' => '(:num)',
+    'only' => ['index', 'create', 'update', 'delete']
+]);
 
 /**
  * --------------------------------------------------------------------
