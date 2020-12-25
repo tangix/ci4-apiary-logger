@@ -1,42 +1,60 @@
 <?php
 
-use Tests\Support\Models\ExampleModel;
+use App\Models\HarvestModel;
+use App\Models\HiveModel;
+use App\Models\QueenModel;
+use Tests\Support\DatabaseTestCase;
 
-class ExampleDatabaseTest extends \Tests\Support\DatabaseTestCase
+class ExampleDatabaseTest extends DatabaseTestCase
 {
-	public function setUp(): void
-	{
-		parent::setUp();
 
-		// Extra code to run before each test
-	}
+    public function setUp(): void
+    {
+        parent::setUp();
+        // Extra code to run before each test
+    }
 
-	public function testModelFindAll()
-	{
-		$model = new ExampleModel();
+    public function testHarvestsModel()
+    {
+        $model = new HarvestModel();
+        $objects = $model->findAll();
+        $this->assertCount(10, $objects);
+        $this->assertEquals('App\Entities\HarvestEntity', get_class($objects[0]));
+        $this->assertEquals('Spring honey', $objects[0]->subject);
+    }
 
-		// Get every row created by ExampleSeeder
-		$objects = $model->findAll();
+    public function testHiveModel()
+    {
+        $model = new HiveModel();
+        $objects = $model->findAll();
+        $this->assertCount(4, $objects);
+        $this->assertEquals('App\Entities\HiveEntity', get_class($objects[0]));
+        $this->assertEquals('H-Blue1', $objects[0]->name);
+    }
 
-		// Make sure the count is as expected
-		$this->assertCount(3, $objects);
-	}
+    public function testInspectionModel()
+    {
+        $model = new \App\Models\InspectionModel();
+        $objects = $model->findAll();
+        $this->assertCount(9, $objects);
+        $this->assertEquals('App\Entities\InspectionEntity', get_class($objects[0]));
 
-	public function testSoftDeleteLeavesRow()
-	{
-		$model = new ExampleModel();
-		$this->setPrivateProperty($model, 'useSoftDeletes', true);
-		$this->setPrivateProperty($model, 'tempUseSoftDeletes', true);
+        // Test updating of model
+        $object = $model->find(1);
+        $this->assertEquals('Weekly inspection', $object->subject);
+        $model->update(1, ['subject' => 'Weekly Inspection']);
+        $object = $model->find(1);
+        $this->assertEquals('Weekly Inspection', $object->subject);
+    }
 
-		$object = $model->first();
-		$model->delete($object->id);
+    public function testQueenModel()
+    {
+        $model = new QueenModel();
+        $objects = $model->findAll();
+        $this->assertCount(6, $objects);
+        $this->assertEquals('App\Entities\QueenEntity', get_class($objects[0]));
+        $this->assertEquals('Q-SH-2019-1', $objects[0]->name);
+    }
 
-		// The model should no longer find it
-		$this->assertNull($model->find($object->id));
 
-		// ... but it should still be in the database
-		$result = $model->builder()->where('id', $object->id)->get()->getResult();
-
-		$this->assertCount(1, $result);
-	}
 }

@@ -4,6 +4,8 @@
 namespace App\Models;
 
 
+use App\Exceptions\RequestException;
+
 class BaseModel extends \CodeIgniter\Model
 {
 
@@ -19,6 +21,10 @@ class BaseModel extends \CodeIgniter\Model
      */
     public function validateVersionAndUpdate($id, $new_data): bool
     {
+        if ( ! property_exists($new_data, 'item_version')) {
+            throw RequestException::forArgumentError();
+        }
+
         $record = $this->find($id);
 
         // Ext JS increments the item_version by one when saving.
@@ -35,7 +41,6 @@ class BaseModel extends \CodeIgniter\Model
 
         try {
             return $this->update($id, $new_data);
-
         } catch (\Exception $e) {
             return false;
         }
